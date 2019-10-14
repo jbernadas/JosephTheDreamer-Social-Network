@@ -112,13 +112,30 @@ if(isset($_POST['register_button'])) {
       $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
     }
 
-    // Profile picture assignment
-    $rand = rand(1, 2); // Random number between 1 and nth number
+    // Random number generator
+    $rand = rand(1, 16); // Random number between 1 and nth number
 
-    if($rand == 1)
-      $profile_pic = "DefaultProfilePictures/head_alizarin.png";
-    else if ($rand == 2)
-      $profile_pic = "DefaultProfilePictures/head_amethyst.png";
+    // Profile
+    $profiles_pic = array (
+      $profiles_pic1 = "DefaultProfilePictures/head_alizarin.png",
+      $profiles_pic2 = "DefaultProfilePictures/head_amethyst.png",
+      $profiles_pic3 = "DefaultProfilePictures/head_belize_hole.png",
+      $profiles_pic4 = "DefaultProfilePictures/head_carrot.png",
+      $profiles_pic5 = "DefaultProfilePictures/head_deep_blue.png",
+      $profiles_pic6 = "DefaultProfilePictures/head_emerald.png",
+      $profiles_pic7 = "DefaultProfilePictures/head_green_sea.png",
+      $profiles_pic8 = "DefaultProfilePictures/head_nephritis.png",
+      $profiles_pic9 = "DefaultProfilePictures/head_pete_river.png",
+      $profiles_pic10 = "DefaultProfilePictures/head_pomegranate.png",
+      $profiles_pic11 = "DefaultProfilePictures/head_pumpkin.png",
+      $profiles_pic12 = "DefaultProfilePictures/head_red.png",
+      $profiles_pic13 = "DefaultProfilePictures/head_sun_flower.png",
+      $profiles_pic14 = "DefaultProfilePictures/head_turqoise.png",
+      $profiles_pic15 = "DefaultProfilePictures/head_wet_asphalt.png",
+      $profiles_pic16 = "DefaultProfilePictures/head_wisteria.png",
+    );
+
+    $profile_pic = $profiles_pic[$rand - 1];
 
     $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')");
 

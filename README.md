@@ -1,5 +1,3 @@
-# facebook-clone
-
 Facebook Clone
 ==============
 

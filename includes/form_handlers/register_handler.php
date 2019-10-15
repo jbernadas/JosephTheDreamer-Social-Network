@@ -96,14 +96,24 @@ if(isset($_POST['register_button'])) {
 
     // Generate username by concatenating first letter of first name and last name
     $username = strtolower($fname[0] . $lname);
+    // check if username already exists in table
     $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
 
     $i = 0;
-		//if username exists add number 1 to username
+		// while username exists add number 1 to username
 		while(mysqli_num_rows($check_username_query) != 0) {
       $i++; //Add 1 to i
       $username = $username . $i;
       $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+      // while username has a one digit number already
+      while(mysqli_num_rows($check_username_query) != 0) {
+        // remove the last integer from $username
+        $username = substr($username, 0, -1);
+        // concatenate the value of $i to $username
+        $username = $username . $i++;
+        // check if $username exists in table
+        $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+      }
     }
 
     // Random number generator

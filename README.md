@@ -1,5 +1,5 @@
-Facebook Clone
-==============
+JosephTheDreamer-Social
+=======================
 
 This is a social networking site patterned after Facebook, built with vanilla PHP, Javascript and MySQL. No frameworks.
 

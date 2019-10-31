@@ -1,0 +1,50 @@
+
+.register {
+  background: url("../images/backgrounds/desktop/shutterstock_1054276079.jpg") no-repeat;
+  background-size: cover;
+  min-width: 950px;
+}
+
+.error_msg {
+  color: red;
+}
+h1 {
+  text-align: center;
+}
+.login-area, .register-area, .content {
+  margin: 2rem auto;
+  text-align: center;
+  padding: 10px 10px 40px;
+  border: 1px solid #ccc;
+  width: 300px;
+  border-radius: 10px;
+  background: aliceblue;
+}
+.login-area input, .register-area input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#brand {
+  width: 350px;
+  z-index: 100;
+  margin: 0 auto;
+}
+#brand h1 {
+  color: #78aeb5;
+  font-family: 'Rammetto One', cursive;
+  word-break: keep-all;
+  line-height: 2.2rem;
+  font-size: 2.5rem;
+}
+#brand h1 small {
+  font-size: .9rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+#brand p {
+  color: #9bb77b;
+  font-size: 1.1em;
+  line-height: .8em;
+}

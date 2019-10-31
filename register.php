@@ -8,10 +8,14 @@ require "includes/form_handlers/login_handler.php";
 <html>
   <head>
     <title>Register</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
   </head>
-  <body>
-
+  <body class="register">
+    <div id="brand" className="col-xl-3 float-left">
+      <h1>Joseph<br/><small>the</small>Dreamer</h1>
+      <p>Crowdsourced dream interpretation &amp; dictionary</p>
+    </div>
     <div class="login-area">
       <h1>Login</h1>
       <form action="register.php" method="POST">
@@ -70,6 +74,5 @@ require "includes/form_handlers/login_handler.php";
         <?php if(in_array("<span style='color: #14C800;'>You're all set! Goahead and login!</span><br>", $error_array)) echo "<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>"; ?>
       </form>
     </div>
-
   </body>
 </html>

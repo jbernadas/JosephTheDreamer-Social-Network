@@ -60,7 +60,7 @@ require "includes/form_handlers/login_handler.php";
           </div>
           <?php if(in_array("Email or password was incorrect<br />", $error_array)) echo "Email or password was incorrect<br />" ?>
           <input type="submit" name="login_button" value="Login" /><br />
-          Need an account? <a href="#" id="signup" class="signup">Register here!</a>
+          Don't have an account? <a href="#" id="signup" class="signup">Register here!</a>
         </form>
       </div>
       <div id="register-form">

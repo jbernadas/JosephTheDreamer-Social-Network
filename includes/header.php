@@ -47,6 +47,8 @@
     </form>
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item active">
+        <a class="nav-link" href="#" title="User">Joseph<span class="sr-only">(current)</span></a>
+      <li class="nav-item active">
         <a class="nav-link" href="index.php" title="Home"><i class="fas fa-home"></i><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">

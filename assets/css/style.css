@@ -11,40 +11,93 @@
 h1 {
   text-align: center;
 }
-.login-area, .register-area, .content {
-  margin: 2rem auto;
+.login-register-area, .content {
+  margin: 7% auto;
   text-align: center;
-  padding: 10px 10px 40px;
+  padding: 5px 5px 30px;
   border: 1px solid #ccc;
-  width: 300px;
+  max-width: 400px;
   border-radius: 10px;
-  background: aliceblue;
+  background: rgba(240, 248, 255, 0.8196078431372549);
 }
-.login-area input, .register-area input {
+.login-register-area input, input {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-#brand {
-  width: 350px;
+.login-register-area form {
+  padding: 20px;
+}
+input[type="submit"] {
+  padding: 5px 30px;
+  border-radius: 3px;
+  margin: 7px;
+  background: #00c6e0;
+  border: 1px solid #00c6e0;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+#register-form {
+  display: none;
+}
+a {
+  color: #3F51B5;
+}
+input.form-control {
+  margin-top: 0;
+}
+header.register-header {
+  padding: 5px 10px;
+  background: aliceblue;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 20px;
+}
+.bg-light {
+  background-color: #e8f3ff !important;
+}
+#brand-stacked h1, #brand-straight h1 {
+  font-family: 'Rammetto One', cursive;
+  color: #78aeb5;
+  word-break: keep-all;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #cfdebd;
+  text-shadow: 1px 2px 3px green;
+}
+#brand-stacked {
+  width: 100%;
   z-index: 100;
   margin: 0 auto;
 }
-#brand h1 {
-  color: #78aeb5;
-  font-family: 'Rammetto One', cursive;
-  word-break: keep-all;
+#brand-stacked h1 {
   line-height: 2.2rem;
   font-size: 2.5rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
-#brand h1 small {
+#brand-stacked h1 small {
   font-size: .9rem;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   line-height: 1rem;
   text-transform: uppercase;
 }
-#brand p {
-  color: #9bb77b;
+#brand-stacked p {
+  color: #1c234d;
   font-size: 1.1em;
   line-height: .8em;
+  margin-top: 0;
+}
+#brand-straight {
+  margin-right: 1.5%;
+}
+#brand-straight h1 {
+  float: left;
+  font-size: 2rem;
+}
+#brand-straight h1 small {
+  font-size: 0.7rem;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  line-height: .2rem;
+  text-transform: uppercase;
 }

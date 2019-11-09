@@ -68,6 +68,9 @@ header.register-header {
   z-index: 100;
   margin: 0 auto;
 }
+form.form-inline.my-2.my-lg-0 {
+  margin: 0 auto;
+}
 #brand-stacked h1 {
   line-height: 2.2rem;
   font-size: 2.5rem;

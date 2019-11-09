@@ -139,8 +139,10 @@ if(isset($_POST['register_button'])) {
       $profiles_pic16 = "DefaultProfilePictures/head_wisteria.png",
     );
 
+    $profile_pic_address = "assets/images/";
+
     // Assigns a random profile pic to each registering user
-    $profile_pic = $profiles_pic[$rand - 1];
+    $profile_pic = $profile_pic_address . $profiles_pic[$rand - 1];
 
     $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')");
 

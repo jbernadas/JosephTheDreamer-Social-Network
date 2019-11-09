@@ -3,6 +3,8 @@
 
   if(isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
+    $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
+    $user = mysqli_fetch_array($user_details_query);
   }
   else {
     header("Location: register.php");
@@ -31,42 +33,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <div id="brand-straight">
-    <h1>Joseph <small>the</small> Dreamer</h1>
-  </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div id="brand-straight">
+      <h1>Joseph <small>the</small> Dreamer</h1>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#" title="User">Joseph<span class="sr-only">(current)</span></a>
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php" title="Home"><i class="fas fa-home"></i><span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" title="Messages"><i class="fas fa-envelope"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" title="Notifications"><i class="fas fa-bell"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" title="Friends"><i class="fas fa-users"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" title="Settings"><i class="fas fa-cog"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/register.php" title="Log out"><i class="fas fa-sign-out-alt"></i></a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" title="User"><?php echo $user['username']; ?><span class="sr-only">(current)</span></a>
+        <li class="nav-item active">
+          <a class="nav-link" href="index.php" title="Home"><i class="fas fa-home"></i><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" title="Messages"><i class="fas fa-envelope"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" title="Notifications"><i class="fas fa-bell"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" title="Friends"><i class="fas fa-users"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" title="Settings"><i class="fas fa-cog"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register.php" title="Log out"><i class="fas fa-sign-out-alt"></i></a>
+        </li>
+      </ul>
 
-  </div>
-</nav>
+    </div>
+  </nav>

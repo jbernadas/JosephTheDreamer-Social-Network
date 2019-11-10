@@ -58,6 +58,9 @@ a {
 input.form-control {
   margin-top: 0;
 }
+.sidebar-first.id a {
+  display: contents;
+}
 header.register-header {
   padding: 5px 10px;
   background: aliceblue;
@@ -72,7 +75,7 @@ header.register-header {
 }
 #brand-stacked h1, #brand-straight h1 {
   font-family: 'Rammetto One', cursive;
-  color: #78aeb5;
+  color: #4a929c;
   word-break: keep-all;
   -webkit-text-stroke: 1px;
   -webkit-text-stroke-color: #cfdebd;

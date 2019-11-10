@@ -1,8 +1,21 @@
-
+body {
+  background: #f2f2f2;
+}
 .register {
   background: url("../images/backgrounds/desktop/shutterstock_1054276079.jpg") no-repeat;
   background-size: cover;
   min-width: 950px;
+}
+
+.sidebar-first {
+  background: white;
+  padding: 10px;
+  border-radius: 7px;
+  display: inline-flex;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar-first.id img {
+  margin-right: 10px;
 }
 
 .error_msg {
@@ -54,6 +67,8 @@ header.register-header {
 }
 .bg-light {
   background-color: #e8f3ff !important;
+  border-bottom: 4px solid #c7dbf0;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
 }
 #brand-stacked h1, #brand-straight h1 {
   font-family: 'Rammetto One', cursive;
@@ -70,6 +85,9 @@ header.register-header {
 }
 form.form-inline.my-2.my-lg-0 {
   margin: 0 auto;
+}
+.user-details.container {
+  margin-top: 20px;
 }
 #brand-stacked h1 {
   line-height: 2.2rem;

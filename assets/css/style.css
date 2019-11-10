@@ -10,7 +10,7 @@ body {
 .sidebar-first {
   background: white;
   padding: 10px;
-  border-radius: 7px;
+  border-radius: 5px;
   display: inline-flex;
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.1);
 }
@@ -67,8 +67,8 @@ header.register-header {
 }
 .bg-light {
   background-color: #e8f3ff !important;
-  border-bottom: 4px solid #c7dbf0;
-  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e9f4ff;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.15);
 }
 #brand-stacked h1, #brand-straight h1 {
   font-family: 'Rammetto One', cursive;

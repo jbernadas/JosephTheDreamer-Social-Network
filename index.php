@@ -7,7 +7,7 @@ include("includes/classes/User.php");
         <div class="col-md-3">
           <div class="sidebar-first id">
             <a href="<?php echo $userLoggedIn; ?>"><img src="<?php echo $user['profile_pic']; ?>" alt="User picture"></a>
-            <?php echo '<a href="'. $userLoggedIn . '">' . $user[first_name] . " " . $user[last_name] . '</a>'; ?><br />
+            <?php echo '<a href="'. $userLoggedIn . '">' . $user['first_name'] . " " . $user['last_name'] . '</a>'; ?><br />
             <?php
               echo "Posts: " . $user['num_posts'] . "<br />";
               echo "Likes: " . $user['num_likes'];
@@ -21,11 +21,6 @@ include("includes/classes/User.php");
               <input type="submit" name="post" id="post-button" value="Post">
               <hr>
             </form>
-
-            <?php
-            $user_obj = new User($con, $userLoggedIn);
-            echo $user_obj->getFirstAndLastName;
-            ?>
           </div>
         </div>
       </div>

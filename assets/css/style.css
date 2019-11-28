@@ -6,21 +6,31 @@ body {
   background-size: cover;
   min-width: 950px;
 }
-
+.sidebar-first {
+  display: inline-flex;
+}
 .sidebar-first, .main-column {
   background: white;
   padding: 10px;
   border-radius: 5px;
-  display: inline-flex;
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.1);
 }
 .main-column {
   position: relative;
   width: 100%;
-  padding: 15px;
+  padding: 20px;
 }
-.post-form {
+textarea#post-text {
+  width: 88%;
+}
+.post-form, .status-post {
   width: 100%;
+}
+input#post-button {
+  width: 10%;
+  margin: 0;
+  padding: 16px;
+  float: right;
 }
 .post-form textarea {
   width: 100%;

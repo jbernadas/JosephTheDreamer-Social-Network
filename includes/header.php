@@ -69,7 +69,7 @@
           <a class="nav-link" href="#" title="Settings"><i class="fas fa-cog"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/register.php" title="Log out"><i class="fas fa-sign-out-alt"></i></a>
+          <a class="nav-link" href="includes/handlers/logout.php" title="Log out"><i class="fas fa-sign-out-alt"></i></a>
         </li>
       </ul>
 

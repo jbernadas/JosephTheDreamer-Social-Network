@@ -6,6 +6,7 @@ include("includes/classes/Post.php");
 if(isset($_POST['post'])){
   $post = new Post($con, $userLoggedIn);
   $post->submitPost($_POST['post_text'], 'none');
+  header("Location: index.php");
 }
 
 ?>
@@ -21,14 +22,18 @@ if(isset($_POST['post'])){
             ?>
           </div>
         </div>
-        <div class="col-md-9">
-          <div class="main-column">
+        <div class="main-column col-md-9">
+          <div class="form-wrapper">
             <form class="post-form" action="index.php" method="POST">
               <textarea name="post_text" id="post-text" placeholder="What was your dream all about?"></textarea>
-              <input type="submit" name="post" id="post-button" value="Post">
-              <hr>
+              <input class="col-xl-2" type="submit" name="post" id="post-button" value="Post">
             </form>
+            <hr>
           </div>
+          <?php
+            $post = new Post($con, $userLoggedIn);
+            $post->loadPostsFriends();
+          ?>
         </div>
       </div>
     </div>

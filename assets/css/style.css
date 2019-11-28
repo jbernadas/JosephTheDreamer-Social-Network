@@ -9,6 +9,7 @@ body {
 .sidebar-first {
   display: inline-flex;
 }
+
 .sidebar-first, .main-column {
   background: white;
   padding: 10px;
@@ -131,7 +132,12 @@ form.form-inline.my-2.my-lg-0 {
   margin: 0 auto;
 }
 .user-details.container {
-  margin-top: 20px;
+  margin: 0 auto;
+  top: 85px;
+  position: relative;
+  padding: 0 10px;
+  width: 75%;
+  min-width: 950px;
 }
 #brand-stacked h1 {
   line-height: 2.2rem;
@@ -165,4 +171,13 @@ form.form-inline.my-2.my-lg-0 {
   text-orientation: mixed;
   line-height: .2rem;
   text-transform: uppercase;
+}
+nav.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+.navbar {
+  padding: .5rem 1rem .3rem;
 }

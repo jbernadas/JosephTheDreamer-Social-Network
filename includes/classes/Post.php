@@ -177,7 +177,7 @@ class Post {
                   </div>
 
                   <div class='posted-by' style='color:#acacac;'>
-                    <a href='added-by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;$time_message
+                    <a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;$time_message
                   </div>
 
                   <div id='post-body'>
@@ -188,13 +188,11 @@ class Post {
                 <hr>";
       } // End while loop
 
-      if($count > $limit) {
-        $str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
-                  <input type='hidden' class='noMorePosts' value='false'>";
-      }
-      else {
-        $str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: center;'>No more posts to show!</p>";
-      }
+      if($count > $limit)
+				$str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
+							<input type='hidden' class='noMorePosts' value='false'>";
+			else
+				$str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: centre;'> No more posts to show! </p>";
     }
 
     echo $str;

@@ -23,71 +23,77 @@ if(isset($_POST['post'])){
           </div>
         </div>
         <div class="main-column col-md-9">
-          <div class="form-wrapper">
-            <form class="post-form" action="index.php" method="POST">
-              <textarea name="post_text" id="post-text" placeholder="What was your dream all about?"></textarea>
-              <input class="col-xl-2" type="submit" name="post" id="post-button" value="Post">
-            </form>
-            <hr>
-          </div>
+          <form class="post-form" action="index.php" method="POST">
+            <textarea name="post_text" id="post-text" placeholder="What was your dream all about?"></textarea>
+            <input class="col-xl-2" type="submit" name="post" id="post-button" value="Post">
+          </form>
+          <hr>
 
           <div class="posts-area"></div>
-          <img id="loading" src="assets/images/icons/Bar-Preloader/48x48.gif" />
-
-        </div>
-      </div>
-    </div>
+          <img id="loading" src="assets/images/icons/Bar-Preloader/48x48.gif">
+        </div><!-- /main-column col-md-9 -->
+      </div><!-- /row -->
+    </div><!-- /user-details container -->
     <script>
+      $(function(){
+
         var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+        var inProgress = false;
 
-        $(document).ready(function() {
-
-          $('#loading').show();
-
-          //Original ajax request for loading first posts
-          jQuery.ajax({
-            url: "includes/handlers/ajax_load_posts.php",
-            type: "POST",
-            data: "page=1&userLoggedIn=" + userLoggedIn,
-            cache:false,
-
-            success: function(data) {
-              $('#loading').hide();
-              $('.posts-area').html(data);
-            }
-          });
+        loadPosts(); //Load first posts
 
           $(window).scroll(function() {
-            var height = $('.posts-area').height(); //Div containing posts
-            var scroll_top = $(this).scrollTop();
-            var page = $('.posts-area').find('.nextPage').val();
+            var bottomElement = $(".status-post").last();
             var noMorePosts = $('.posts-area').find('.noMorePosts').val();
 
-            if ((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') {
-              // shows the loading gif
-              $('#loading').show();
+              // isElementInViewport uses getBoundingClientRect(), which requires the HTML DOM object, not the jQuery object. The jQuery equivalent is using [0] as shown below.
+              if (isElementInView(bottomElement[0]) && noMorePosts == 'false') {
+                  loadPosts();
+              }
+          });
 
-              var ajaxReq = $.ajax({
-                url: "includes/handlers/ajax_load_posts.php",
-                type: "POST",
-                data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
-                cache:false,
+          function loadPosts() {
+              if(inProgress) { //If it is already in the process of loading some posts, just return
+            return;
+          }
 
-                success: function(response) {
-                  $('.posts-area').find('.nextPage').remove(); //Removes current .nextpage
-                  $('.posts-area').find('.noMorePosts').remove(); //Removes current .nextpage
+          inProgress = true;
+          $('#loading').show();
 
-                  $('#loading').hide();
-                  $('.posts-area').append(response);
-                }
-              });
-            } // End if
+          var page = $('.posts-area').find('.nextPage').val() || 1; //If .nextPage couldn't be found, it must not be on the page yet (it must be the first time loading posts), so use the value '1'
 
-            return false;
+          $.ajax({
+            url: "includes/handlers/ajax_load_posts.php",
+            type: "POST",
+            data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+            cache:false,
 
-          }); // End (window).scroll(function())
+            success: function(response) {
+              $('.posts-area').find('.nextPage').remove(); //Removes current .nextpage
+              $('.posts-area').find('.noMorePosts').remove(); //Removes current .nextpage
+              $('.posts-area').find('.noMorePostsText').remove(); //Removes current .nextpage
 
-        });
-      </script>
+              $('#loading').hide();
+              $(".posts-area").append(response);
+
+              inProgress = false;
+            }
+          });
+          }
+
+          //Check if the element is in view
+          function isElementInView (el) {
+              var rect = el.getBoundingClientRect();
+
+              return (
+                  rect.top >= 0 &&
+                  rect.left >= 0 &&
+                  rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && //* or $(window).height()
+                  rect.right <= (window.innerWidth || document.documentElement.clientWidth) //* or $(window).width()
+              );
+          }
+      });
+
+    </script>
   </body>
 </html>

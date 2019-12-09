@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <?php
+<?php
   require 'config/config.php';
   include("includes/classes/User.php");
   include("includes/classes/Post.php");
@@ -20,8 +11,17 @@
   else {
     header("Location: register.php");
   }
-  ?>
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
   <script>
     function toggle() {
       var element = document.getElementById("comment_section");
@@ -151,6 +151,9 @@
 
       <?php
     }
+  }
+  else {
+    echo "<center><br><br>No comments to show!</center>";
   }
   ?>
 

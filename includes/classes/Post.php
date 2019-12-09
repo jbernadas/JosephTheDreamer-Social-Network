@@ -209,7 +209,8 @@ class Post {
                     </div>
 
                     <div style='padding: 10px 10px 0 0; color: #0056b3' class='newsfeedPostOptions'>
-                      Comments&nbsp;($comments_check_num)&nbsp;&nbsp;&nbsp;
+                      <span>Comments&nbsp;($comments_check_num)</span>
+                      <span>Likes&nbsp;(0)</span>
                     </div>
 
                   </div>

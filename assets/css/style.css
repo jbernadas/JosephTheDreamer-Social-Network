@@ -131,6 +131,9 @@ header.register-header {
 form.form-inline.my-2.my-lg-0 {
   margin: 0 auto;
 }
+.newsfeedPostOptions span {
+  margin-right: 20px;
+}
 iframe#comment_iframe {
   background: transparent;
   border: 0;

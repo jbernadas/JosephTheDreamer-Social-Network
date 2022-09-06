@@ -58,9 +58,11 @@ require "includes/form_handlers/login_handler.php";
             </div>
             <input class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2"  type="password" name="log_password" placeholder="Password" /><br />
           </div>
-          <?php if(in_array("Email or password was incorrect<br />", $error_array)) echo "Email or password was incorrect<br />" ?>
+          <?php if(in_array("Email or password was incorrect", $error_array)) { ?> 
+            <?php  echo "<div class='error_msg'>Email or password was incorrect</div>"; ?>
+          <?php }; ?>
           <input type="submit" name="login_button" value="Login" /><br />
-          Don't have an account? <a href="#" id="signup" class="signup">Register here!</a>
+          <p>Don't have an account? <a href="#" id="signup" class="signup">Register here!</a></p>
         </form>
       </div>
       <div id="register-form">
@@ -76,7 +78,7 @@ require "includes/form_handlers/login_handler.php";
             ?>" required />
             <br />
           </div>
-          <div class="error_msg"><?php if(in_array("Your first name must be between 2 and 25 characters<br />", $error_array)) echo "Your first name must be between 2 and 25 characters<br />"; ?></div>
+          <div class="error_msg"><?php if(in_array("Your first name must be between 2 and 25 characters", $error_array)) echo "Your first name must be between 2 and 25 characters<br />"; ?></div>
           <div class="input-group mb-3">
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon4"><i class="fas fa-user"></i></span>
@@ -87,12 +89,12 @@ require "includes/form_handlers/login_handler.php";
               }
             ?>" required /><br />
           </div>
-          <div class="error_msg"><?php if(in_array("Your last name must be between 2 and 25 characters<br />", $error_array)) echo "Your last name must be between 2 and 25 characters<br />"; ?></div>
+          <div class="error_msg"><?php if(in_array("Your last name must be between 2 and 25 characters", $error_array)) echo "Your last name must be between 2 and 25 characters<br />"; ?></div>
           <div class="input-group mb-3">
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon5"><i class="fas fa-envelope"></i></span>
             </div>
-            <input class="form-control" aria-label="Email" aria-describedby="basic-addon5" type="email" name="reg_email" placeholder="E-mail" value="<?php
+            <input autocorrect="off" class="form-control" aria-label="Email" aria-describedby="basic-addon5" type="email" name="reg_email" placeholder="E-mail" value="<?php
               if(isset($_SESSION['reg_email'])) {
                 echo $_SESSION['reg_email'];
               }
@@ -102,16 +104,16 @@ require "includes/form_handlers/login_handler.php";
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon6"><i class="fas fa-envelope"></i></span>
             </div>
-            <input class="form-control" placeholder="Confirm email" aria-label="Confirm email" aria-describedby="basic-addon6" type="email" name="reg_email2" value="<?php
+            <input class="form-control" autocorrerct="off" placeholder="Confirm email" aria-label="Confirm email" aria-describedby="basic-addon6" type="email" name="reg_email2" value="<?php
               if(isset($_SESSION['reg_email2'])) {
                 echo $_SESSION['reg_email2'];
               }
             ?>" required /><br />
           </div>
           <div class="error_msg"><?php
-            if(in_array("Email already in use<br />", $error_array)) echo "Email already in use<br />";
-            else if(in_array("Invalid email format<br />", $error_array)) echo "Invalid email format<br />";
-            else if(in_array("E-mails don't match<br />", $error_array)) echo "E-mails don't match<br />";
+            if(in_array("Email already in use", $error_array)) echo "Email already in use<br />";
+            else if(in_array("Invalid email format", $error_array)) echo "Invalid email format<br />";
+            else if(in_array("E-mails do not match", $error_array)) echo "E-mails don't match<br />";
           ?></div>
           <div class="input-group mb-3">
             <div class="input-group-append">
@@ -126,12 +128,12 @@ require "includes/form_handlers/login_handler.php";
             <input class="form-control" placeholder="Confirm password" aria-label="Confirm password" aria-describedby="basic-addon8" type="password" name="reg_password2" required /><br />
           </div>
           <div class="error_msg"> <?php
-            if(in_array("Passwords don't match<br />", $error_array)) echo "Passwords don't match<br />";
-            else if(in_array("Your password can only contain english characters or numbers<br />", $error_array)) echo "Your password can only contain english characters or numbers<br />";
-            else if(in_array("Your password must be between 5 and 30 characters<br />", $error_array)) echo "Your password must be between 5 and 30 characters<br />";
+            if(in_array("Passwords do not match", $error_array)) echo "Passwords don't match<br />";
+            else if(in_array("Your password can only contain english characters or numbers", $error_array)) echo "Your password can only contain english characters or numbers<br />";
+            else if(in_array("Your password must be between 5 and 30 characters", $error_array)) echo "Your password must be between 5 and 30 characters <br />";
           ?></div>
-          <input type="submit" value="Register" name="register_button" /><input type="submit" value="Reset" name="reset_button" /> <br />
-          <?php if(in_array("<span style='color: #14C800;'>You're all set! Goahead and login!</span><br>", $error_array)) echo "<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>"; ?>
+          <input type="submit" value="Register" name="register_button" /><input type="reset" value="Reset" name="reset_button" /> <br />
+          <?php if(in_array("You are all set! Go ahead and login!", $error_array)) echo "<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>"; ?>
           Already have an account? <a href="#" id="signin" class="signin">Sign in here!</a>
         </form>
       <div>

@@ -30,7 +30,10 @@ if(isset($_POST['post'])){
           <hr>
 
           <div class="posts-area"></div>
-          <img id="loading" src="assets/images/icons/Bar-Preloader/48x48.gif">
+          <?php if($user['num_posts'] > 0) { ?>
+            <?php echo '<img id="loading" src="assets/images/icons/Bar-Preloader/48x48.gif">'; ?>
+          <?php } ?> 
+          
         </div><!-- /main-column col-md-9 -->
       </div><!-- /row -->
     </div><!-- /user-details container -->

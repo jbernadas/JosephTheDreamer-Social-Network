@@ -27,6 +27,35 @@ textarea#post-text {
 .post-form, .status-post {
   width: 100%;
 }
+.newsfeedPostOptions span.comment,
+.newsfeedPostOptions span.like {
+  cursor: pointer;
+}
+.newsfeedPostOptions iframe {
+  border: 0;
+  height: 44px;
+  width: 144px;
+  margin-bottom: -23px;
+  overflow: unset;
+  margin-left: -20px;
+}
+.newsfeedPostOptions iframe body {
+  background: white !important;
+}
+input[type="submit"][class="comment_like"] {
+  background: white;
+  border: none;
+  color: #0056b3;
+  float: right;
+  padding: 0;
+  margin: 0;
+}
+input[type="submit"][class="like_value"],
+input[type="submit"][class="comment_like"] {
+  font-size: 16px;
+  display: inline-block;
+}
+
 input#post-button {
   width: 10%;
   margin: 0;
@@ -82,7 +111,8 @@ h1 {
 .login-register-area form {
   padding: 20px;
 }
-input[type="submit"] {
+input[type="submit"],
+input[type="reset"] {
   padding: 5px 30px;
   border-radius: 3px;
   margin: 7px;

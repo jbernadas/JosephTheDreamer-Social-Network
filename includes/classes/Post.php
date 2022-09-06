@@ -48,6 +48,8 @@ class Post {
     }
   }
 
+  // Update own posts
+
   // Loads posts from friends
   public function loadPostsFriends($data, $limit) {
 
@@ -196,28 +198,28 @@ class Post {
           }
 
           $str .= "<div class='status-post' onClick='javascript:toggle$id()'>
-                    <div class='post-profile-pic'>
-                      <img src='$profile_pic' width='50'>
-                    </div>
+              <div class='post-profile-pic'>
+                <img src='$profile_pic' width='50'>
+              </div>
 
-                    <div class='posted-by' style='color:#acacac;'>
-                      <a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;$time_message
-                    </div>
+              <div class='posted-by' style='color:#acacac;'>
+                <a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;$time_message
+              </div>
 
-                    <div id='post-body'>
-                      $body<br>
-                    </div>
+              <div id='post-body'>
+                $body<br>
+              </div>
 
-                    <div style='padding: 10px 10px 0 0; color: #0056b3' class='newsfeedPostOptions'>
-                      <span>Comments&nbsp;($comments_check_num)</span>
-                      <span>Likes&nbsp;(0)</span>
-                    </div>
+              <div style='padding: 10px 10px 0 0; color: #0056b3' class='newsfeedPostOptions'>
+                <span class='comment'>Comments&nbsp;($comments_check_num)</span>
+                <span class='like'><iframe src='like.php?post_id=$id'></iframe></span>
+              </div>
 
-                  </div>
-                  <div class='post_comment' id='toggleComment$id' style='display: none'>
-                    <iframe src='comment_frame.php?post_id=$id' id='comment_iframe'></iframe>
-                  </div>
-                  <hr>";
+            </div>
+            <div class='post_comment' id='toggleComment$id' style='display: none'>
+              <iframe src='comment_frame.php?post_id=$id' id='comment_iframe'></iframe>
+            </div>
+            <hr>";
         }
       } // End while loop
 

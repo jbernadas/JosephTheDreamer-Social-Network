@@ -27,18 +27,16 @@ if(isset($_POST['register_button'])) {
   // E-mail
   $em = strip_tags($_POST['reg_email']); // remove HTML tags
   $em = str_replace(' ', '', $em); // remove spaces
-  $em = ucfirst(strtolower($em)); // uppercase first letter
+  $em = lcfirst(strtolower($em)); // uppercase first letter
   $_SESSION['reg_email'] = $em; // Stores email into the session variable
 
   // E-mail 2
   $em2 = strip_tags($_POST['reg_email2']); // remove HTML tags
   $em2 = str_replace(' ', '', $em2); // remove spaces
-  $em2 = ucfirst(strtolower($em2)); // uppercase first letter
+  $em2 = lcfirst(strtolower($em2)); // uppercase first letter
   $_SESSION['reg_email2'] = $em2; // Stores email2 into the session variable
   // Password
   $password = strip_tags($_POST['reg_password']); // remove HTML tags
-
-  // Password 2
   $password2 = strip_tags($_POST['reg_password2']); // remove HTML tags
 
   $date = date("Y-m-d"); // Current date
@@ -59,38 +57,38 @@ if(isset($_POST['register_button'])) {
 
       // Checks if $num_rows has value
       if($num_rows > 0) {
-        array_push($error_array, "Email already in use<br />");
+        array_push($error_array, "Email already in use");
       }
     }
     else {
-      array_push($error_array, "Invalid email format<br />");
+      array_push($error_array, "Invalid email format");
     }
   }
   else {
-    array_push($error_array, "E-mails don't match<br />");
+    array_push($error_array, "E-mails do not match");
   }
 
   if(strlen($fname) > 25 ||  strlen($fname) < 2) {
-    array_push($error_array, "Your first name must be between 2 and 25 characters<br />");
+    array_push($error_array, "Your first name must be between 2 and 25 characters");
   }
 
   if(strlen($lname) > 25 ||  strlen($lname) < 2) {
-    array_push($error_array, "Your last name must be between 2 and 25 characters<br />");
+    array_push($error_array, "Your last name must be between 2 and 25 characters");
   }
 
   if($password != $password2) {
-    array_push($error_array, "Passwords don't match<br />");
+    array_push($error_array, "Passwords do not match");
   }
   else {
     if(preg_match('/[^A-Za-z0-9]/', $password)) {
-      array_push($error_array, "Your password can only contain english characters or numbers<br />");
+      array_push($error_array, "Your password can only contain english characters or numbers");
     }
   }
 
-  if(strlen($password > 30 || strlen($password) < 5)) {
-    array_push($error_array, "Your password must be between 5 and 30 characters<br />");
+  if(strlen($password) > 30 || strlen($password) < 5) {
+    array_push($error_array, "Your password must be between 5 and 30 characters");
   }
-
+  
   if(empty($error_array)) {
     $password = md5($password); // Encrypt password before sending to database
 
@@ -104,6 +102,7 @@ if(isset($_POST['register_button'])) {
 		while(mysqli_num_rows($check_username_query) != 0) {
       $i++; //Add 1 to i
       $username = $username . $i;
+      
       $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
       // while username has a one digit number already
       while(mysqli_num_rows($check_username_query) != 0) {
@@ -144,19 +143,18 @@ if(isset($_POST['register_button'])) {
     // Assigns a random profile pic to each registering user
     $profile_pic = $profile_pic_address . $profiles_pic[$rand - 1];
 
-    $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')");
+    $query = mysqli_query($con, "INSERT INTO users (id, first_name, last_name, username,email, password, signup_date, profile_pic, num_posts, num_likes, user_closed, friend_array) VALUES (NULL, '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', 0, 0, 'no', ',')");
 
     // Success message pushed to $error_array
-    array_push($error_array, "<span style='color: #14C800;'>You're all set! Goahead and login!</span><br>");
+    array_push($error_array, "You are all set! Go ahead and login!");
 
 		//Clear session variables
 		$_SESSION['reg_fname'] = "";
 		$_SESSION['reg_lname'] = "";
 		$_SESSION['reg_email'] = "";
     $_SESSION['reg_email2'] = "";
-    $_SESSION[$username] = "";
 
-    header("Location: success.html");
+    header("Location: register.php");
 
   }
 
